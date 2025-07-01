@@ -7,4 +7,6 @@ Especially this can be used in output code block.
     output "ResourceGroupNames" {
         value = [for i in module.RG : i.RG_name]
      }   
-#########
+
+for_each:
+
