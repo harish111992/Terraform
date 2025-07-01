@@ -32,5 +32,7 @@ output "ResourceGroupNames" {
   value = module.RG.RG_name
 }
 
-for_each:
+
+<img width="863" alt="count Example_for In output" src="https://github.com/user-attachments/assets/3fd752d4-345f-44f7-887a-64bf22c4ed57" />
+
 
