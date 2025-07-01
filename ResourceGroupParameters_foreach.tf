@@ -1,15 +1,18 @@
 locals {
-  rgnames = ["Test-RG", "Test-RG1"]
+  rgnames = {
+    Test-RG = "East US 2"
+    Test-RG2 = "Easr US"
+  }
 }
 
 module "RG" {
     source = "./Terraform-Modules/ResourceGroup"
-    
+    for_each = local.rgnames
     providers = {
       azurerm = azurerm.Sandbox
     }
-    RGLocation = "East US 2"
-    ResourceGroup = local.rgnames[count.index]
+    RGLocation = each.value
+    ResourceGroup = each.key
     Mandatory_TAGS = {
           costCentre = "CC0143"
           PatchingPolicy = "SandobxPatchingPolicy"
@@ -22,6 +25,6 @@ output "ResourceGroupNames" {
   value = [for i in module.RG : i.RG_name]
 }
 
-output "ResourceGroupNames" {
-  value = module.RG.RG_name
+output "ResourceGroupLocations" {
+  value = [for Location in module.RG : Location.RG_Location]
 }
