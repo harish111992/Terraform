@@ -1,0 +1,22 @@
+trigger:
+- none
+
+pool:
+  name: Self-Hosted Linux Ansible West Europe
+
+steps:
+- task: ArchiveFiles@2
+  displayName: 'Archiving Terraform Modules'
+  inputs:
+    rootFolderOrFile: '$(Build.Repository.LocalPath)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+
+

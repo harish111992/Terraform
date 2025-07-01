@@ -1,0 +1,20 @@
+trigger:
+- none
+
+pool:
+  name: Self-Hosted Linux Ansible West Europe
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/*.nuspec'
+    versioningScheme: 'off'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'Terraform-Templates'
+    publishLocation: 'Container'

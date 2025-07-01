@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>terraform-modules</id>
+    <version>1.0.0</version>
+    <authors>Harish</authors>
+    <description>Reusable Terraform modules</description>
+  </metadata>
+  <files>
+    <file src="**\*" target="content" />
+  </files>
+</package>
