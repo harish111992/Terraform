@@ -9,6 +9,7 @@ Especially this can be used in output code block. The code file name is "Resourc
 
 for_each:
 Example- ResourceGroupParameters_foreach.tf file.
+
 <img width="539" alt="for_each_Eample" src="https://github.com/user-attachments/assets/760ad056-750a-446a-a51d-317e2eb9ae14" />
 
 
