@@ -23,10 +23,10 @@ Modifying the tags of a resource group (RG) externally (i.e., outside of Terrafo
 3. Later, you added a different tag (e.g., Owner = DevOps) in your Terraform .tf file and ran terraform apply.
 What Will Happen?
 By default, Terraform will overwrite the entire tags block with what’s defined in the .tf file.
-tags = {
+4. tags = {
   Owner = "DevOps"
 }
-4. Then after terraform apply, the manually added tag (Environment = Production) will be removed, and only Owner = DevOps will remain.
+5. Then after terraform apply, the manually added tag (Environment = Production) will be removed, and only Owner = DevOps will remain.
 
 
 
