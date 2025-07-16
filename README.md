@@ -27,6 +27,13 @@ Modifying the tags of a resource group (RG) externally (i.e., outside of Terrafo
 7.  Owner = "DevOps"
 8. }
 9. Then after terraform apply, the manually added tag (Environment = Production) will be removed, and only Owner = DevOps will remain.
+11. How to prevent this ?
+12. Create lifecycle block and ignore the TAG changes.
+    
+    <img width="511" height="285" alt="lifrCycle" src="https://github.com/user-attachments/assets/614bb9f1-9960-4e60-a865-793428b8034c" />
+
+13. Using ignore_changes = [tags] means Terraform will no longer manage tags for that resource. If you want to manage some tags but ignore others, you’ll need a more advanced setup (like using locals or external data sources to merge tags).
+
 
 
 
