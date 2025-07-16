@@ -12,5 +12,12 @@ Example- ResourceGroupParameters_foreach.tf file.
 
 <img width="539" alt="for_each_Eample" src="https://github.com/user-attachments/assets/760ad056-750a-446a-a51d-317e2eb9ae14" />
 
+# I have created a RG using terraform, and I have modified the Tags in a external way. I want to create a NSG in the same RG using terraform. will it leads to a drift ?
+Modifying the tags of a resource group (RG) externally (i.e., outside of Terraform, such as via the Azure Portal or CLI) does not directly cause a drift when you create a new resource like a Network Security Group (NSG) in the same RG using Terraform. However, here's a breakdown of what you should be aware of
+ 1. When you create the NSG using Terraform and reference the existing RG (even if its tags were modified externally), Terraform will not attempt to change the RG unless the RG is also managed in your Terraform configuration and the tags differ from what's defined in your code.
+ 2. The NSG will be created in the RG as expected.
+
+
+
 
 
