@@ -33,6 +33,10 @@ Modifying the tags of a resource group (RG) externally (i.e., outside of Terrafo
     <img width="511" height="285" alt="lifrCycle" src="https://github.com/user-attachments/assets/614bb9f1-9960-4e60-a865-793428b8034c" />
 
 13. Using ignore_changes = [tags] means Terraform will no longer manage tags for that resource. If you want to manage some tags but ignore others, you’ll need a more advanced setup (like using locals or external data sources to merge tags).
+14. If you manually add another tag in the Azure Portal (e.g., Environment = Production), Terraform will not remove it in future apply operations.
+15. If you change the Owner tag in the .tf file (e.g., to Owner = "Admin"), Terraform will ignore that change too — because all tag changes are being ignored.
+    <img width="386" height="175" alt="tags" src="https://github.com/user-attachments/assets/f73f54e8-12ca-4f93-9b03-5ef4f4b9ec0b" />
+
 
 
 
