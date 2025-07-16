@@ -17,6 +17,17 @@ Modifying the tags of a resource group (RG) externally (i.e., outside of Terrafo
  1. When you create the NSG using Terraform and reference the existing RG (even if its tags were modified externally), Terraform will not attempt to change the RG unless the RG is also managed in your Terraform configuration and the tags differ from what's defined in your code.
  2. The NSG will be created in the RG as expected.
 
+# There is a Resource Group I have created using terraform after I have added a TAG directly in portal. then I added another TAG in the terraform .tf file what it will do ?
+1. You created a Resource Group using Terraform.
+2. You then manually added a tag (e.g., Environment = Production) in the Azure Portal.
+3. Later, you added a different tag (e.g., Owner = DevOps) in your Terraform .tf file and ran terraform apply.
+What Will Happen?
+By default, Terraform will overwrite the entire tags block with what’s defined in the .tf file.
+tags = {
+  Owner = "DevOps"
+}
+4. Then after terraform apply, the manually added tag (Environment = Production) will be removed, and only Owner = DevOps will remain.
+
 
 
 
