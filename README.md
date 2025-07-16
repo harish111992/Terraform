@@ -21,12 +21,12 @@ Modifying the tags of a resource group (RG) externally (i.e., outside of Terrafo
 1. You created a Resource Group using Terraform.
 2. You then manually added a tag (e.g., Environment = Production) in the Azure Portal.
 3. Later, you added a different tag (e.g., Owner = DevOps) in your Terraform .tf file and ran terraform apply.
-What Will Happen?
-By default, Terraform will overwrite the entire tags block with what’s defined in the .tf file.
-4. tags = {
-5.  Owner = "DevOps"
-6. }
-7. Then after terraform apply, the manually added tag (Environment = Production) will be removed, and only Owner = DevOps will remain.
+4. What Will Happen?
+5. By default, Terraform will overwrite the entire tags block with what’s defined in the .tf file.
+6. tags = {
+7.  Owner = "DevOps"
+8. }
+9. Then after terraform apply, the manually added tag (Environment = Production) will be removed, and only Owner = DevOps will remain.
 
 
 
